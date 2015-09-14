@@ -1,0 +1,19 @@
+C:\Users\Jeff\AppData\Local\AppDevPro\FDDSE.ConsoleClient.vshos_Url_025twhn3ipbjb0ryaqtrdnco2evty5mk\1.0.0.0
+
+http://www.sparxeng.com/blog/software/must-use-net-system-io-ports-serialport
+
+http://ie.microsoft.com/TESTdrive/HTML5/TypedArrays/Default.html
+
+http://stackoverflow.com/questions/2426190/how-to-read-file-binary-in-c
+
+
+The .dsk file is just a linear binary dump of the Altair disks.
+ 
+  8 inch: track 0-76, sector 0-31, 137 bytes per sector
+ 
+  Minidisk: track 0-34, sector 0-15, 137 bytes per sector
+ 
+ http://blogs.msdn.com/b/bclteam/archive/2006/10/10/top-5-serialport-tips-_5b00_kim-hamilton_5d00_.aspx
+
+
+ http://stackoverflow.com/questions/13754694/what-is-the-correct-way-to-read-a-serial-port-using-net-framework
