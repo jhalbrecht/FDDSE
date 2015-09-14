@@ -1,0 +1,1 @@
+This will be a readme.md in the fddse.console project. Can I edit this in Visual Studio? This may help me learn if I can edit the top level Readme.md in visual studio utilizing the web extensions for preview.
