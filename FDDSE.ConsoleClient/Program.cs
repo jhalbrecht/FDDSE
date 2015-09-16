@@ -69,7 +69,7 @@ namespace FDDSE.ConsoleClient
                 {
                     Console.WriteLine(port);
                 }
-                Console.ReadLine();
+                // Console.ReadLine();
                 Environment.Exit(0);
             }
 
@@ -82,6 +82,15 @@ namespace FDDSE.ConsoleClient
 
             Console.WriteLine("After command line parse Port: {0}, Speed: {1}", Settings.Default.Port, Settings.Default.Speed);
 
+            if (Settings.Default.Port == null)
+            {
+                Console.WriteLine("serial port null");
+                Environment.Exit(0);
+            }
+
+
+            try
+            {
             _serialPort = new SerialPort(
                 Settings.Default.Port,
                 Settings.Default.Speed,
@@ -90,14 +99,14 @@ namespace FDDSE.ConsoleClient
 
             _serialPort.ReadBufferSize = 5120;
             // _serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-
-            try
-            {
                 _serialPort.Open();
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception: " + e.ToString());
+                Console.WriteLine("Error opening serial port");
+                Console.WriteLine("The Exception is: " + e.ToString());
+                Console.WriteLine("\nPerhaps you need to run first time setup. Please review readme.txt\n");
+                Environment.Exit(0);
             }
             // Console.ReadKey();
             // _serialPort.Close();
@@ -238,7 +247,9 @@ namespace FDDSE.ConsoleClient
                             transferLength = BitConverter.ToInt16(serialPortReadBuffer, 6);
                             responseBytes = new byte[transferLength + 2];
                             // TODO incomplete. Check drive nibble MSNibble and track 12 bits
-                            driveNumber = serialPortReadBuffer[5] & 0xf0; //0b11110000;
+                            // Parameter 1 contains the drive number in the MSNibble.
+                            driveNumber = (byte)((serialPortReadBuffer[5] >> 4) & 0x0F);
+                            // driveNumber = serialPortReadBuffer[5] & 0xf0; //0b11110000;
                             specifiedTrack = serialPortReadBuffer[4];
                             byte[] transferBytes = _fdcpFileService.ReadDiskDataByte(
                                 driveNumber, 
@@ -294,7 +305,8 @@ namespace FDDSE.ConsoleClient
 
                             //responseBytes = new byte[transferLength + 2];
                             transferLength = BitConverter.ToInt16(serialPortReadBuffer, 6);
-                            driveNumber = serialPortReadBuffer[5] & 0xf0; //0b11110000;
+                            //driveNumber = serialPortReadBuffer[5] & 0xf0; //0b11110000;
+                            driveNumber = (byte)((serialPortReadBuffer[5] >> 4) & 0x0F);
                             specifiedTrack = serialPortReadBuffer[4];
                             if (IsDebugging)
                                 Debug.WriteLine("transferLength: {0}, driveNumber: {1}, specifiedTrack: {2}", transferLength,
@@ -329,7 +341,8 @@ namespace FDDSE.ConsoleClient
                             }
 
                             _serialPort.DiscardInBuffer();
-                            Thread.Sleep(150);
+                            // Thread.Sleep(150);
+                            Thread.Sleep(300);
 
                             // 4384
                             int bytesToRead = _serialPort.BytesToRead;

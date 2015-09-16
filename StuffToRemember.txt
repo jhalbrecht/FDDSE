@@ -20,3 +20,6 @@ The .dsk file is just a linear binary dump of the Altair disks.
 
 
  http://stackoverflow.com/questions/13754694/what-is-the-correct-way-to-read-a-serial-port-using-net-framework
+
+
+ -pCOM4 -s460800 -aData/cpm48k.dsk -bData/myide.dsk -o
