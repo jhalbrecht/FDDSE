@@ -8,8 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F505E57A-3989-452E-B520-3799CC32CF26}"
 	ProjectSection(SolutionItems) = preProject
 		FDC+ Manual.pdf = FDC+ Manual.pdf
-		FDDSE.zip = FDDSE.zip
 		README.md = README.md
+		readme.txt = readme.txt
 		serial protocol.txt = serial protocol.txt
 		StuffToRemember.txt = StuffToRemember.txt
 	EndProjectSection
