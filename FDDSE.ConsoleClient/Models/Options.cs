@@ -19,7 +19,7 @@ namespace FDDSE.ConsoleClient.Models
         //[Option('v', null, HelpText = "Print details during execution.")]
         //public bool Verbose { get; set; }
 
-        [Option('v', null, HelpText = "Print details during execution.(Not implemented)")]
+        [Option('v', "verbose", HelpText = "Print details during execution.(Not implemented) Currently prints config file path.")]
         public bool Verbose { get; set; }
 
         [Option('o', "OverWriteConfig", DefaultValue = false, HelpText = "Persist (save) command line options to application configuration file for future use.")]
@@ -54,6 +54,7 @@ namespace FDDSE.ConsoleClient.Models
         public string GetUsage()
         {
             return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
+
             // this without using CommandLine.Text
             //  or using HelpText.AutoBuild
             //var usage = new StringBuilder();

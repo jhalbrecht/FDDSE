@@ -60,6 +60,13 @@ namespace FDDSE.ConsoleClient
                     Console.WriteLine("Bleuch no bueno on command line.");
 
                 Console.WriteLine(_options.GetUsage());
+                Environment.Exit(0);
+            }
+
+            if (_options.Verbose == true)
+            {
+                Console.WriteLine("config file: {0}",
+                  AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
             }
 
             if (_options.EnumeratePorts == true)
@@ -428,7 +435,8 @@ namespace FDDSE.ConsoleClient
         {
             while (true)
             {
-                Console.WriteLine("Enter input for on the fly changes:"); // Prompt
+                Console.WriteLine("Enter input for on the fly changes (^c exits):"); // Prompt
+                Console.WriteLine("Sorry, this feature is not currently implemented");
                 string line = Console.ReadLine(); // Get string from user
                 if (line.ToUpper() == "exit".ToUpper()) // Check string
                 {

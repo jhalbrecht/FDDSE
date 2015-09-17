@@ -42,6 +42,7 @@ namespace FDDSE.ConsoleClient.Models
                 mountedDrives = mountedDrives | (byte)Drives.DskA;
                 //dskA = Path.Combine(Environment.CurrentDirectory, Settings.Default.DskA);
                 dskAfileBytes = File.ReadAllBytes(Path.Combine(Environment.CurrentDirectory, Settings.Default.DskA));
+                Console.WriteLine("DskA: {0}", Settings.Default.DskA);
             }
             else
             {
@@ -55,13 +56,11 @@ namespace FDDSE.ConsoleClient.Models
                 mountedDrives = mountedDrives | (byte)Convert.ToInt32("00000010", 2);
                 //dskB = Path.Combine(Environment.CurrentDirectory, Settings.Default.DskB);
                 dskBfileBytes = File.ReadAllBytes(Path.Combine(Environment.CurrentDirectory, Settings.Default.DskB));
+                Console.WriteLine("DskB: {0}", Settings.Default.DskB);
             }
             else
             {
-                if (String.IsNullOrEmpty(Settings.Default.DskB))
-                    Console.WriteLine("DskB: {0}", "is null");
-                else
-                    Console.Write("DskB: {0}", Settings.Default.DskB);
+                Console.WriteLine("DskB: {0}", "is null");
             }
 
             // DskC
@@ -71,13 +70,11 @@ namespace FDDSE.ConsoleClient.Models
                 mountedDrives = mountedDrives | (byte)Convert.ToInt32("00000100", 2);
                 //dskB = Path.Combine(Environment.CurrentDirectory, Settings.Default.DskB);
                 dskCfileBytes = File.ReadAllBytes(Path.Combine(Environment.CurrentDirectory, Settings.Default.DskC));
+                Console.WriteLine("DskC: {0}", Settings.Default.DskC);
             }
             else
             {
-                if (String.IsNullOrEmpty(Settings.Default.DskC))
-                    Console.WriteLine("DskC: {0}", "is null");
-                else
-                    Console.Write("DskC: {0}", Settings.Default.DskC);
+                Console.WriteLine("DskC: {0}", "is null");
             }
 
             // DskD
@@ -87,15 +84,12 @@ namespace FDDSE.ConsoleClient.Models
                 mountedDrives = mountedDrives | (byte)Convert.ToInt32("00001000", 2);
                 //dskB = Path.Combine(Environment.CurrentDirectory, Settings.Default.DskB);
                 dskDfileBytes = File.ReadAllBytes(Path.Combine(Environment.CurrentDirectory, Settings.Default.DskD));
+                Console.WriteLine("DskD: {0}", Settings.Default.DskD);
             }
             else
             {
-                if (String.IsNullOrEmpty(Settings.Default.DskD))
-                    Console.WriteLine("DskD: {0}", "is null");
-                else
-                    Console.Write("DskD: {0}", Settings.Default.DskD);
+                Console.WriteLine("DskD: {0}", "is null");
             }
-
             Debug.WriteLine("mountedDrives: {0}", mountedDrives.ToString("X4"));
         }
 
