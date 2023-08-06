@@ -8,7 +8,7 @@ ___
 
 **Note:** This repository is for the source code to FDDSE. The source code is not necessary to run FDDSE on your hardware.
 
-__Official documentation and executables__ downloads are maintained at the [RetroWagon FDDSE wiki page.](http://retrowagon.org/wiki/index.php/FDDSE)
+__Official documentation and executables__ downloads are maintained at the [RetroWagon FDDSE wiki page.](https://wiki.theretrowagon.com/wiki/FDDSE)
 
 ---
 ___
